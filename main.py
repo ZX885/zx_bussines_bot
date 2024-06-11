@@ -5,10 +5,11 @@ from telebot import types
 
 bot = telebot.TeleBot('7328354559:AAHF-zxxsIGWvMW4AUNbzDDnt2Oz6O-5wK4')
 print('Running the bot............')
-RANDOM_IMAGE = "random_img"
+RANDOM_IMAGE = "/random_img"
 RANDOM_IMG_URL = "https://picsum.photos/1200"
 global IMAGE_COUNTER
 IMAGE_COUNTER = 0
+
 @bot.message_handler(commands=['start'])
 def start(message):
     mess = f'Привет, <b>{message.from_user.first_name} <u>{message.from_user.last_name}</u></b>'
