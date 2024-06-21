@@ -8,6 +8,7 @@ pyaudio = "*"
 flet = "*"
 telebot = "*"
 requests = "*"
+aiogram = "*"
 
 [dev-packages]
 
