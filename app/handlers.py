@@ -20,8 +20,7 @@ async def help(message: Message):
 @router.message(Command('app'))
 async def app(message: Message):
     markup = ReplyKeyboardMarkup(keyboard=[
-        [KeyboardButton(text='web app',web_app=WebAppInfo(url='https://zarrux-company-react-frontend.onrender.com'))],
-        [KeyboardButton(text='onlayn market',web_app=WebAppInfo(url='https://itproger.com/telegram.html'))],
+        [KeyboardButton(text='web app',web_app=WebAppInfo(url='https://online-shop-rwi0.onrender.com'))],
         [KeyboardButton(text='Channel',web_app=WebAppInfo(url='https://www.youtube.com/channel/UCCEDRfofQS-DBurQ_MpBTkA'))]
         ],resize_keyboard=True)
     await message.answer('Hello!', reply_markup=markup)
