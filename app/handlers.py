@@ -33,7 +33,7 @@ async def help(message: Message):
 async def app(message: Message):
     markup = ReplyKeyboardMarkup(keyboard=[
         [KeyboardButton(text='web app',web_app=WebAppInfo(url='https://online-shop-rwi0.onrender.com'))],
-        # [KeyboardButton(text='Channel',web_app=WebAppInfo(url='https://www.youtube.com/channel/UCCEDRfofQS-DBurQ_MpBTkA'))]
+        [KeyboardButton(text='furniture site',web_app=WebAppInfo(url='https://zarrux-company-react-frontend.onrender.com'))],
         [KeyboardButton(text='Channel',web_app=WebAppInfo(url='https://www.youtube.com'))]
         ],resize_keyboard=True)
     await message.answer('Наши сайты 📟!', reply_markup=markup)
