@@ -4,7 +4,7 @@ import sqlite3
 # import webbrowser
 # from telebot import types
 
-bot = telebot.TeleBot('7328354559:AAHF-zxxsIGWvMW4AUNbzDDnt2Oz6O-5wK4')
+bot = telebot.TeleBot('')
 print('Running the bot............')
 
 name = 'None'
