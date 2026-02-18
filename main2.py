@@ -8,7 +8,7 @@ print('Running a bot...........')
 
 
 async def main():
-    bot = Bot('') # Подключаемся к боту через токен
+    bot = Bot('7328354559:AAGorazZym4uFcvpIOrr05jKj7UFn_l8dHY') # Подключаемся к боту через токен
     dp = Dispatcher() # Наш обработчик, роутер, помошник
     dp.include_router(router)
     await dp.start_polling(bot) # Поллинг - наш скрипт обращается к серверу телеграм-- не пришло ли обновление
