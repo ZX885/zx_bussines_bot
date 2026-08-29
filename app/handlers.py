@@ -1,5 +1,5 @@
 from aiogram import  F, Router, types
-from aiogram.types import Message, ReplyKeyboardMarkup, KeyboardButton
+from aiogram.types import Message, ReplyKeyboardMarkup, KeyboardButton, InlineKeyboardMarkup, InlineKeyboardButton
 from aiogram.types.web_app_info import WebAppInfo
 from aiogram.filters import CommandStart, Command
 
@@ -16,7 +16,7 @@ async def start(message: Message):
 Бот создан для личных целей и учебы.🔍
 
 /help 💁 для помощи
-/app 📟 наши сайты
+/apps 📟 наши сайты
 /tracker 💪 трекер тренировок
 
 Если будут вобпросы тг на 👉 https://t.me/AKM_SHOOT
@@ -33,12 +33,15 @@ async def help(message: Message):
 
 @router.message(Command('apps'))
 async def app(message: Message):
-    markup = ReplyKeyboardMarkup(keyboard=[
-        [KeyboardButton(text='ZX Portfolio',web_app=WebAppInfo(url='https://zx885portfolio.netlify.app/'))],
-        [KeyboardButton(text='ZX Marketplace',web_app=WebAppInfo(url='https://thunderous-biscuit-249b2e.netlify.app'))],
-        [KeyboardButton(text='Channel',web_app=WebAppInfo(url='https://t.me/super_car_o_0'))],
-        [KeyboardButton(text='Трекер тренировок',web_app=WebAppInfo(url='https://web-seven-sandy-84.vercel.app'))]
-        ],resize_keyboard=True)
+    # Inline keyboard, not a reply keyboard: Telegram refuses to open a t.me
+    # link inside a Mini App (WebAppInfo), and KeyboardButton has no `url`
+    # field at all — so the Channel link needs InlineKeyboardButton(url=...).
+    markup = InlineKeyboardMarkup(inline_keyboard=[
+        [InlineKeyboardButton(text='ZX Portfolio',web_app=WebAppInfo(url='https://zx885portfolio.netlify.app/'))],
+        [InlineKeyboardButton(text='ZX Marketplace',web_app=WebAppInfo(url='https://thunderous-biscuit-249b2e.netlify.app'))],
+        [InlineKeyboardButton(text='Channel',url='https://t.me/super_car_o_0')],
+        [InlineKeyboardButton(text='Трекер тренировок',web_app=WebAppInfo(url='https://web-seven-sandy-84.vercel.app'))]
+        ])
     await message.answer('Наши сайты 📟!', reply_markup=markup)
 
 @router.message(Command('tracker'))
