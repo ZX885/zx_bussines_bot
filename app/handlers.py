@@ -17,6 +17,7 @@ async def start(message: Message):
 
 /help 💁 для помощи
 /app 📟 наши сайты
+/tracker 💪 трекер тренировок
 
 Если будут вобпросы тг на 👉 https://t.me/AKM_SHOOT
 
@@ -25,15 +26,24 @@ async def start(message: Message):
 @router.message(Command('help'))
 async def help(message: Message):
     await message.answer('''
-/start 👆 для запуска бота 
+/start 👆 для запуска бота
 /app 📟 наши сайты
+/tracker 💪 трекер тренировок
     ''')
 
 @router.message(Command('app'))
 async def app(message: Message):
     markup = ReplyKeyboardMarkup(keyboard=[
-        [KeyboardButton(text='web app',web_app=WebAppInfo(url='https://online-shop-rwi0.onrender.com'))],
-        [KeyboardButton(text='furniture site',web_app=WebAppInfo(url='https://zarrux-company-react-frontend.onrender.com'))],
-        [KeyboardButton(text='Channel',web_app=WebAppInfo(url='https://www.youtube.com'))]
+        [KeyboardButton(text='ZX Portfolio',web_app=WebAppInfo(url='https://zx885portfolio.netlify.app/'))],
+        [KeyboardButton(text='ZX Marketplace',web_app=WebAppInfo(url='https://thunderous-biscuit-249b2e.netlify.app'))],
+        [KeyboardButton(text='Channel',web_app=WebAppInfo(url='https://t.me/super_car_o_0'))],
+        [KeyboardButton(text='Трекер тренировок',web_app=WebAppInfo(url='https://web-seven-sandy-84.vercel.app'))]
         ],resize_keyboard=True)
     await message.answer('Наши сайты 📟!', reply_markup=markup)
+
+@router.message(Command('tracker'))
+async def tracker(message: Message):
+    markup = ReplyKeyboardMarkup(keyboard=[
+        [KeyboardButton(text='Открыть трекер',web_app=WebAppInfo(url='https://web-seven-sandy-84.vercel.app'))]
+        ],resize_keyboard=True)
+    await message.answer('Трекер тренировок 💪 — ставь цели и качай персонажа на 100 дней!', reply_markup=markup)

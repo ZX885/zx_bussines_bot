@@ -2,3 +2,4 @@ telebot
 requests
 aiogram
 asyncio
+python-dotenv
