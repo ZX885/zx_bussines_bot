@@ -27,11 +27,11 @@ async def start(message: Message):
 async def help(message: Message):
     await message.answer('''
 /start 👆 для запуска бота
-/app 📟 наши сайты
+/apps 📟 наши сайты
 /tracker 💪 трекер тренировок
     ''')
 
-@router.message(Command('app'))
+@router.message(Command('apps'))
 async def app(message: Message):
     markup = ReplyKeyboardMarkup(keyboard=[
         [KeyboardButton(text='ZX Portfolio',web_app=WebAppInfo(url='https://zx885portfolio.netlify.app/'))],
